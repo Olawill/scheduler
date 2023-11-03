@@ -25,6 +25,11 @@ export default function Form(props) {
       return;
     }
 
+    if (interviewer === null) {
+      setError("Please select an interviewer");
+      return;
+    }
+
     setError("");
     props.onSave(name, interviewer);
   }
@@ -38,6 +43,7 @@ export default function Form(props) {
             name="name"
             type="text"
             placeholder="Enter Student Name"
+            data-testid="student-name-input"
             value={name}
             onChange={event => {
               setName(event.target.value);
